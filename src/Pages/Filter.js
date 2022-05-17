@@ -1,14 +1,14 @@
 import react from "react";
 import '../Styles/Filter.scss'
-import ComboBox from "../Component/Search";
-import CategoriesBox from "../Component/Categories";
+import Input from "../Component/Input";
+import Select from "../Component/Select";
 
 const Filter = () => {
     return (
         <div className="filtreContainers">
            
-                 <ComboBox /> 
-                 <CategoriesBox/>
+                 <Input/> 
+                 <Select/>
          
         </div>
     )
