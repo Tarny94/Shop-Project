@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-export const Products = async (data) => {
+export const ProductsData = async (data) => {
 await axios.get('https://dummyjson.com/products')
 }
