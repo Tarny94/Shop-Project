@@ -1,40 +1,53 @@
-.containers-card{
-    
-    width: 100%;
+.containers-card{ 
+    width: 100%;    
     
 }
 
 .cards{
-    border-radius: 5px;
+   
     width: 20%;
     height: 30rem;
     margin: 15px;
     box-shadow: 2px 4px 13px -6px;
 }
 
-.img {
-    border-bottom: 1px solid gray;
-    height: 50%;
-}
-
-h1{
-   
-    padding-bottom: 30px;
-    margin-bottom: -17px;
+.img {   
+    height: 45%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    display: flex;
-    border-bottom: 1px solid gray;
 }
 
-h3 {
+
+.card-detail{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;   
+}
+.title {
     
-    padding-bottom: 30px;
-    border-bottom: 1px solid gray;
+    padding: 0.5rem;
+   
+    
+}
+.description{
+    
+    padding: 1.5rem;
 }
 
-.card-price {
-    display: flex;
-    justify-content:  space-around;
-    border-bottom: 1px solid gray;
-   
+.price{
+    
+    padding: 0.6rem;
 }
+
+.rating {
+    padding: 0.8rem;
+}
+
+.view-product {
+    background-color: rgb(226, 158, 69);
+    padding:  1.5rem;
+    cursor: pointer;
+}
+

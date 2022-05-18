@@ -1,15 +1,34 @@
-import react from "react";
+import React, { useEffect, useState } from "react";
 import '../Styles/Filter.scss'
 import Input from "../Component/Input";
 import Select from "../Component/Select";
+import { api } from "../Utils/Api";
 
 const Filter = () => {
+   
+    const [options, setOptions] = useState();
+    const [category, setCategory] = useState('');
+
+    useEffect(() => {
+        api.categories.fetch().then(data => {
+            console.log(data.data)
+            setOptions(data.data)
+        })
+    },[])
+
+    
     return (
         <div className="filtreContainers">
-           
-                 <Input/> 
-                 <Select/>
-         
+                <div>
+                    <Input/> 
+                </div>
+                <div className="select">
+                <Select
+                    value={category}
+                    options = {options}
+                    onChange={val => setCategory(val)}
+                />
+                </div>
         </div>
     )
 }
