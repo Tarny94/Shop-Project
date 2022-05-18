@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../Styles/Filter.scss'
+import '../styles/Filter.scss'
 import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
