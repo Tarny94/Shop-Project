@@ -1,15 +1,18 @@
-.containers-card {
-  width: 100%;
+@import "../styles/vars";
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 
-.cards {
-  width: 15rem;
+.card-container {
+  width: 18rem;
   height: 27rem;
-  margin: 5%;
+  margin: 60px;
   box-shadow: 2px 4px 13px -6px;
 }
 
-.img {
+.card-image {
   height: 45%;
   display: flex;
   justify-content: center;
@@ -38,7 +41,7 @@
 }
 
 .view-product {
-  background-color: rgb(226, 158, 69);
-  padding: 1.5rem;
+  padding: 0.7rem;
   cursor: pointer;
+  background-color: $colorView;
 }
