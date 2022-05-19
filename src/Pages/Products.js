@@ -13,7 +13,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className="containers">
+      <div className="container">
         <Card />;
       </div>
     </div>

@@ -15,7 +15,7 @@ const Filter = () => {
   }, []);
 
   return (
-    <div className="filtre-container">
+    <div className="filter-container">
       <div>
         <Input />
       </div>
@@ -24,6 +24,15 @@ const Filter = () => {
           value={category}
           options={options}
           onChange={(val) => setCategory(val)}
+          label="Categories"
+        />
+      </div>
+      <div className="select-category">
+        <Select
+          value={category}
+          options={options}
+          onChange={(val) => setCategory(val)}
+          label="Products"
         />
       </div>
     </div>
