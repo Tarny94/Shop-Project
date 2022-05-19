@@ -27,14 +27,6 @@ const Filter = () => {
           label="Categories"
         />
       </div>
-      <div className="select-category">
-        <Select
-          value={category}
-          options={options}
-          onChange={(val) => setCategory(val)}
-          label="Products"
-        />
-      </div>
     </div>
   );
 };
