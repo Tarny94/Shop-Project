@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Card.scss";
 
-const Card = ({ produs }) => {
+const Card = ({ product }) => {
   return (
-    <div className="card-contains">
+    <div className="card-container">
       <div className="card-image">
         <img alt="Image" />
       </div>

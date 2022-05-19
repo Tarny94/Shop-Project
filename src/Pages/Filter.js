@@ -15,7 +15,7 @@ const Filter = () => {
   }, []);
 
   return (
-    <div className="filtre-containers">
+    <div className="filtre-container">
       <div>
         <Input />
       </div>
