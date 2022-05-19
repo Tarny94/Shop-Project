@@ -2,15 +2,9 @@ import React, { useState } from "react";
 import "../styles/Card.scss";
 
 const Card = ({ produs }) => {
-  const [p, setP] = useState();
-
-  console.log(produs);
   return (
-    // { produs.map(id => {
-    //   if(id.id > 0 && id.id <= 10) {
-    // <>
-    <div className="cards">
-      <div className="img">
+    <div className="card-contains">
+      <div className="card-image">
         <img alt="Image" />
       </div>
       <h2 className="card-detail title">Title</h2>
@@ -19,8 +13,6 @@ const Card = ({ produs }) => {
       <p className="card-detail rating">Rating</p>
       <h3 className="card-detail view-product">View Product</h3>
     </div>
-    //   </>
-    // }}) }
   );
 };
 

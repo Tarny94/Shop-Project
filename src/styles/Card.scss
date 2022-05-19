@@ -1,16 +1,18 @@
+@import "../styles/vars";
+
 .containers {
   display: flex;
   justify-content: center;
 }
 
-.cards {
+.card-contains {
   width: 18rem;
   height: 27rem;
   margin: 60px;
   box-shadow: 2px 4px 13px -6px;
 }
 
-.img {
+.card-image {
   height: 45%;
   display: flex;
   justify-content: center;
@@ -39,8 +41,7 @@
 }
 
 .view-product {
-  background-color: rgb(226, 158, 69);
   padding: 0.7rem;
   cursor: pointer;
-  border: 1px solid rgb(182, 179, 179);
+  background-color: $colorView;
 }

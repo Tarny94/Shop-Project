@@ -7,6 +7,7 @@ const Products = () => {
 
   useEffect(() => {
     api.products.fetch().then((data) => {
+      console.log(data.data);
       setProducts(data.data);
     });
   }, []);
@@ -14,8 +15,7 @@ const Products = () => {
   return (
     <div>
       <div className="containers">
-        //map with every card with id for each other
-        <Card produs={products} />
+        <Card />
       </div>
       <div className="containers"></div>
     </div>

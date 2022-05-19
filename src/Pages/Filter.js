@@ -15,11 +15,11 @@ const Filter = () => {
   }, []);
 
   return (
-    <div className="filtreContainers">
+    <div className="filtre-containers">
       <div>
         <Input />
       </div>
-      <div className="select">
+      <div className="select-category">
         <Select
           value={category}
           options={options}

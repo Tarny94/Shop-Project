@@ -11,24 +11,13 @@ export default function Select({ value, options = [], onChange }) {
   const handleChange = (event) => onChange(event.target.value);
 
   const getLabel = (option) => {
-    // option.split('-')
-
-    if (option.includes("-")) {
-      return option.split("-").join(" ");
-    }
-    return option;
+    return option.includes("-") ? option.split("-").join(" ") : option;
   };
 
   return (
     <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Categories</InputLabel>
-      <MUISelect
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={value}
-        label="Categories"
-        onChange={handleChange}
-      >
+      <InputLabel>Categories</InputLabel>
+      <MUISelect value={value} label="Categories" onChange={handleChange}>
         {options.map((option) => (
           <MenuItem value={option} key={option}>
             {getLabel(option)}
