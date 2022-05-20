@@ -1,19 +1,33 @@
 @import "../styles/vars";
 
-.container {
+.root {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 24rem);
+  gap: 30px;
 }
 
 .card-container {
   width: 18rem;
   height: 27rem;
-  margin: 60px;
   box-shadow: 2px 4px 13px -6px;
+  margin: 50px;
+  margin-left: 90px;
+  text-align: center;
 }
-
+img {
+  width: 18rem;
+  height: 100%;
+}
 .card-image {
-  height: 45%;
+  height: 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,10 +40,24 @@
   padding: 0;
 }
 .title {
-  padding: 0.5rem;
+  padding: 0.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+
+  -webkit-box-orient: vertical;
 }
 .description {
-  padding: 1.5rem;
+  padding: 0.8rem;
+  font-size: 13.5px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+
+  -webkit-box-orient: vertical;
 }
 
 .price {

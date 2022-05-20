@@ -1,13 +1,13 @@
 import react from "react";
+import "./styles/Card.scss";
 import Products from "./Pages/Products";
 import Filter from "./Pages/Filter";
 
-
 function App() {
   return (
-    <div className="App">
-         <Filter/>
-         <Products/>    
+    <div className="root">
+      <Filter />
+      <Products />
     </div>
   );
 }
