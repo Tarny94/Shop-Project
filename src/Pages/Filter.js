@@ -4,10 +4,10 @@ import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
 
-const Filter = () => {
+const Filter = ({ onChange }) => {
   const [options, setOptions] = useState();
-  const [category, setCategory] = useState("");
-
+  const [category, setCategory] = useState();
+  onChange(category);
   useEffect(() => {
     api.categories.fetch().then((data) => {
       setOptions(data.data);
