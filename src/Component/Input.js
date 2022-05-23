@@ -1,14 +1,13 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 
-export default function Input({ value, onChange }) {
+export default function Input({ label, value, onChange }) {
   const handleEvent = (event) => {
     onChange(event.target.value);
   };
   return (
     <TextField
-      id="outlined-basic"
-      label="Search"
+      label={label}
       variant="outlined"
       value={value}
       onChange={handleEvent}

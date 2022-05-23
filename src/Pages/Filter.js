@@ -13,10 +13,6 @@ const Filter = ({ query, setQuery, category, setCategory }) => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   setSearchCategory(Input.target.value);
-  // }, [setSearchCategory]);
-
   return (
     <div className="filter-container">
       <div>
