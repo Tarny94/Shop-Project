@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../Utils/Api";
 import Card from "../Component/Card";
-import axios from "axios";
+
+import { Loading } from "../Component/Loading";
 
 const Products = ({ category }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [productSelected, setProductSelected] = useState();
 
-  console.log(category);
   useEffect(() => {
+    if (category === "") {
+      fetchProducts();
+    } else {
+      fetchProductsByCategory();
+    }
+  }, [category]);
+
+  const fetchProducts = () => {
     api.products.fetch().then((data) => {
-      console.log(data.data.products);
       setProducts(data.data.products);
       setLoading(false);
     });
-  }, []);
+  };
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://dummyjson.com/products/category/${category ? category : null}`
-      )
-      .then((data) => {
-        console.log(data.data);
-        setProductSelected(data.data);
-      });
-  }, [category]);
+  const fetchProductsByCategory = () => {
+    api.products.fetchByCategory(category).then((data) => {
+      setProducts(data.data.products);
+      setLoading(false);
+    });
+  };
 
   if (loading) {
-    return <div>loading....</div>;
+    <Loading loading={Loading} />;
   }
-
-  const getProductsByCategory = () => {};
 
   const getProducts = () =>
     products.map((data) => (
@@ -46,11 +46,7 @@ const Products = ({ category }) => {
       />
     ));
 
-  return (
-    <div className="container">
-      {!category ? getProducts() : getProductsByCategory()}
-    </div>
-  );
+  return <div className="container">{getProducts()}</div>;
 };
 
 export default Products;

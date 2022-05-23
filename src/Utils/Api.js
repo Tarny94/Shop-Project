@@ -1,10 +1,13 @@
 import axios from "axios";
 
-const fetchCategories = async (data) =>
+const fetchCategories = async () =>
   await axios.get("https://dummyjson.com/products/categories");
 
-const fetchProducts = async (data) =>
+const fetchProducts = async () =>
   await axios.get("https://dummyjson.com/products");
+
+const fetchByCategory = async (category) =>
+  await axios.get(`https://dummyjson.com/products/category/${category}`);
 
 export const api = {
   categories: {
@@ -12,5 +15,6 @@ export const api = {
   },
   products: {
     fetch: fetchProducts,
+    fetchByCategory,
   },
 };

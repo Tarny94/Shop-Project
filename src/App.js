@@ -4,12 +4,12 @@ import Products from "./Pages/Products";
 import Filter from "./Pages/Filter";
 
 function App() {
-  const [sendCategory, setSendCategor] = useState();
+  const [category, setCategory] = useState("");
 
   return (
     <div className="root">
-      <Filter onChange={(val) => setSendCategor(val)} />
-      <Products category={sendCategory} />
+      <Filter category={category} setCategory={setCategory} />
+      <Products category={category} />
     </div>
   );
 }

@@ -4,10 +4,9 @@ import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
 
-const Filter = ({ onChange }) => {
+const Filter = ({ category, setCategory }) => {
   const [options, setOptions] = useState();
-  const [category, setCategory] = useState();
-  onChange(category);
+
   useEffect(() => {
     api.categories.fetch().then((data) => {
       setOptions(data.data);
@@ -23,7 +22,7 @@ const Filter = ({ onChange }) => {
         <Select
           value={category}
           options={options}
-          onChange={(val) => setCategory(val)}
+          onChange={setCategory}
           label="Categories"
         />
       </div>
