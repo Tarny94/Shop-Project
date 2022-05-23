@@ -1,15 +1,14 @@
 import React from "react";
 
 import { Rating as MUIRating } from "@mui/material";
-import Typography from "@mui/material/Typography";
 
-export default function Rating({ value, className }) {
+export default function Rating({ readOnly, value, className }) {
   return (
     <>
       <MUIRating
         name="read-only"
         value={value}
-        readOnly
+        readOnly={readOnly}
         className={className}
       />
     </>
