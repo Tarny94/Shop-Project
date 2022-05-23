@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../Utils/Api";
 import Card from "../Component/Card";
-
 import { Loading } from "../Component/Loading";
 
-const Products = ({ category }) => {
+const Products = ({ query, category }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,6 +15,10 @@ const Products = ({ category }) => {
     }
   }, [category]);
 
+  useEffect(() => {
+    fetchProductsByQuery();
+  }, [query]);
+
   const fetchProducts = () => {
     api.products.fetch().then((data) => {
       setProducts(data.data.products);
@@ -25,6 +28,13 @@ const Products = ({ category }) => {
 
   const fetchProductsByCategory = () => {
     api.products.fetchByCategory(category).then((data) => {
+      setProducts(data.data.products);
+      setLoading(false);
+    });
+  };
+
+  const fetchProductsByQuery = () => {
+    api.products.fetchByName(query).then((data) => {
       setProducts(data.data.products);
       setLoading(false);
     });

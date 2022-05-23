@@ -5,11 +5,17 @@ import Filter from "./Pages/Filter";
 
 function App() {
   const [category, setCategory] = useState("");
+  const [query, setQuery] = useState("");
 
   return (
     <div className="root">
-      <Filter category={category} setCategory={setCategory} />
-      <Products category={category} />
+      <Filter
+        category={category}
+        setCategory={setCategory}
+        query={query}
+        setQuery={setQuery}
+      />
+      <Products category={category} query={query} />
     </div>
   );
 }

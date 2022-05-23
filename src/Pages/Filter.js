@@ -4,7 +4,7 @@ import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
 
-const Filter = ({ category, setCategory }) => {
+const Filter = ({ query, setQuery, category, setCategory }) => {
   const [options, setOptions] = useState();
 
   useEffect(() => {
@@ -13,10 +13,14 @@ const Filter = ({ category, setCategory }) => {
     });
   }, []);
 
+  // useEffect(() => {
+  //   setSearchCategory(Input.target.value);
+  // }, [setSearchCategory]);
+
   return (
     <div className="filter-container">
       <div>
-        <Input />
+        <Input query={query} onChange={setQuery} />
       </div>
       <div className="select-category">
         <Select
