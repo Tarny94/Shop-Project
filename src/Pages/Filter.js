@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../styles/Filter.scss";
 import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
+import { ProductsContext } from "./ProductsProvider";
 
-const Filter = ({ query, setQuery, category, setCategory }) => {
+const Filter = () => {
+  const { query, category, setCategory, setQuery } =
+    useContext(ProductsContext);
   const [options, setOptions] = useState();
 
   useEffect(() => {
@@ -16,7 +19,7 @@ const Filter = ({ query, setQuery, category, setCategory }) => {
   return (
     <div className="filter-container">
       <div>
-        <Input query={query} onChange={setQuery} />
+        <Input label={"Cata ma la coaie"} query={query} onChange={setQuery} />
       </div>
       <div className="select-category">
         <Select

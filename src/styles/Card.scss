@@ -77,3 +77,10 @@ img {
   cursor: pointer;
   background-color: $colorView;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}

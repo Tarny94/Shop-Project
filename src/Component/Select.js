@@ -6,8 +6,6 @@ import FormControl from "@mui/material/FormControl";
 import { Select as MUISelect } from "@mui/material";
 
 export default function Select({ value, options = [], onChange, label }) {
-  const theme = useTheme();
-
   const handleChange = (event) => onChange(event.target.value);
 
   const getLabel = (option) => {
