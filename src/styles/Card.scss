@@ -76,6 +76,12 @@ img {
   padding: 1.1rem;
   cursor: pointer;
   background-color: $colorView;
+  transition: 0.6s ease;
+}
+
+.view-product:hover {
+  font-size: 23px;
+  transition: 0.4s ease;
 }
 
 .card-link {

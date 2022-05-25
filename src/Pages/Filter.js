@@ -4,6 +4,7 @@ import Input from "../Component/Input";
 import Select from "../Component/Select";
 import { api } from "../Utils/Api";
 import { ProductsContext } from "./ProductsProvider";
+import { Link } from "react-router-dom";
 
 const Filter = () => {
   const { query, category, setCategory, setQuery } =
@@ -18,6 +19,9 @@ const Filter = () => {
 
   return (
     <div className="filter-container">
+      <Link to={"/"} className="home-button">
+        🏠
+      </Link>
       <div>
         <Input label={"Search"} query={query} onChange={setQuery} />
       </div>

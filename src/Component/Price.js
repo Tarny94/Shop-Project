@@ -5,7 +5,11 @@ const Price = ({ price, dicount }) => {
   const [oldPrice, setOldPrice] = useState();
 
   useEffect(() => {
-    setOldPrice(Math.trunc((price * dicount) / 100 + price));
+    if (dicount) {
+      setOldPrice(Math.trunc((price * dicount) / 100 + price));
+    } else {
+      setOldPrice(price);
+    }
   }, [price, dicount]);
 
   return (

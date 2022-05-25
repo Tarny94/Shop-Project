@@ -4,7 +4,15 @@ import Rating from "./Rating";
 
 import { Link } from "react-router-dom";
 
-const Card = ({ image, title, description, price, rating, id }) => {
+const Card = ({
+  image,
+  title,
+  description,
+  price,
+  rating,
+  id,
+  viewProduct,
+}) => {
   return (
     <div className="card-container">
       <div className="card-image">
@@ -18,7 +26,7 @@ const Card = ({ image, title, description, price, rating, id }) => {
         to={`/product/${id}`}
         className="card-detail view-product card-link"
       >
-        View Product
+        {viewProduct}
       </Link>
     </div>
   );

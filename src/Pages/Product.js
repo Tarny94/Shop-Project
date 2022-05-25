@@ -9,15 +9,14 @@ import ImagesCarousel from "../Component/ImagesCarousel";
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState("");
-  const [numberOfRating, setNumberOfRating] = useState();
+  const [numberOfRatings, setNumberOfRatings] = useState();
 
   useEffect(() => {
-    setNumberOfRating(Math.trunc(Math.random() * 100));
+    setNumberOfRatings(Math.trunc(Math.random() * 100));
   }, [id]);
 
   useEffect(() => {
     api.products.getById(id).then((data) => {
-      console.log(data.data);
       setProduct(data.data);
     });
   }, [id]);
@@ -34,7 +33,7 @@ const Product = () => {
         {product && (
           <div className="product-rating">
             <Rating value={product.rating} />
-            <div className="number-rating">({numberOfRating})</div>
+            <div className="number-rating">({numberOfRatings})</div>
           </div>
         )}
 
