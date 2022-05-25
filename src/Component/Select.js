@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "@mui/material/styles";
+
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -15,7 +15,16 @@ export default function Select({ value, options = [], onChange, label }) {
   return (
     <FormControl fullWidth>
       <InputLabel>{label}</InputLabel>
-      <MUISelect value={value} label={label} onChange={handleChange}>
+      <MUISelect
+        endAdornment={
+          <div onClick={() => alert("clear")} style={{ marginRight: 20 }}>
+            X
+          </div>
+        }
+        value={value}
+        label={label}
+        onChange={handleChange}
+      >
         {options.map((option) => (
           <MenuItem value={option} key={option}>
             {getLabel(option)}

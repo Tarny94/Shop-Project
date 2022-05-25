@@ -19,7 +19,7 @@ const Filter = () => {
   return (
     <div className="filter-container">
       <div>
-        <Input label={"Cata ma la coaie"} query={query} onChange={setQuery} />
+        <Input label={"Search"} query={query} onChange={setQuery} />
       </div>
       <div className="select-category">
         <Select

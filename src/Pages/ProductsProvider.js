@@ -4,11 +4,9 @@ import { api } from "../Utils/Api";
 const initialState = {
   category: "",
   query: "",
-  products: [],
   loading: true,
   setCategory: () => {},
   setQuery: () => {},
-  setProducts: () => {},
   setLoading: () => {},
 };
 
@@ -42,15 +40,15 @@ export const ProductsProvider = (props) => {
 
   useEffect(() => {
     if (category === "") {
-      fetchProducts();
+      if (query === "") {
+        fetchProducts();
+      } else {
+        fetchProductsByQuery();
+      }
     } else {
       fetchProductsByCategory();
     }
-  }, [category]);
-
-  useEffect(() => {
-    fetchProductsByQuery();
-  }, [query]);
+  }, [category, query]);
 
   return (
     <ProductsContext.Provider

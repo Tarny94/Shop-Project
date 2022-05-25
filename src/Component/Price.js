@@ -13,7 +13,7 @@ const Price = ({ price, dicount }) => {
       {price && dicount && <h4 className="old-price">$ {oldPrice}</h4>}
       <div className="price-discount">
         <h1 className="price">$ {price}</h1>
-        <p className="discount">Discount: {dicount}</p>
+        <p className="discount">(-{dicount}%)</p>
       </div>
     </div>
   );

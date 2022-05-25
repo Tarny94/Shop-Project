@@ -2,7 +2,7 @@ import React from "react";
 
 import { Rating as MUIRating } from "@mui/material";
 
-export default function Rating({ readOnly, value, className }) {
+export default function Rating({ readOnly = false, value, className }) {
   return (
     <>
       <MUIRating

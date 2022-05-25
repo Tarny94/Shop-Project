@@ -49,7 +49,7 @@ img {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-.description {
+.descriptions {
   max-height: 45px;
   font-size: 18px;
   overflow: hidden;
@@ -62,13 +62,13 @@ img {
   margin: 10px;
 }
 
-.price {
+.prices {
   padding-top: 0.7rem;
   font-weight: bold;
   font-size: 23px;
 }
 
-.rating {
+.ratings {
   padding: 0.6rem;
 }
 
@@ -78,7 +78,7 @@ img {
   background-color: $colorView;
 }
 
-a {
+.card-link {
   color: inherit;
   text-decoration: none;
   font-size: 18px;

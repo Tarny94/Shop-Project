@@ -4,7 +4,7 @@ import "./styles/Card.scss";
 import Filter from "./Pages/Filter";
 import { ProductsProvider } from "./Pages/ProductsProvider";
 
-import Navigation from "./Component/Navigation";
+import Navigation from "./Pages/Navigation";
 
 function App() {
   return (
