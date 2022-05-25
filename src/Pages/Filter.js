@@ -20,7 +20,7 @@ const Filter = () => {
   return (
     <div className="filter-container">
       <Link to={"/"} className="home-button">
-        🏠
+        SHOURE
       </Link>
       <div>
         <Input label={"Search"} query={query} onChange={setQuery} />

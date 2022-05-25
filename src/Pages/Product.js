@@ -4,7 +4,7 @@ import { api } from "../Utils/Api";
 import "../styles/Product.scss";
 import Rating from "../Component/Rating";
 import Price from "../Component/Price";
-import ImagesCarousel from "../Component/ImagesCarousel";
+import Carousels from "../Component/Carousel";
 
 const Product = () => {
   const { id } = useParams();
@@ -22,12 +22,12 @@ const Product = () => {
   }, [id]);
 
   return (
-    <div className="product-contained">
-      <ImagesCarousel
+    <div className="product-container">
+      <Carousels
         images={product.images}
         title={product.title}
         key={id}
-        infiniteLoop="infiniteLoop"
+        infiniteLoo
       />
       <div className="product-details">
         {product && (
@@ -38,7 +38,7 @@ const Product = () => {
         )}
 
         <h1 className="product-title">{product.title}</h1>
-        <Price price={product.price} dicount={product.discountPercentage} />
+        <Price price={product.price} discount={product.discountPercentage} />
         <h3 className="add-card">ADD TO CARD</h3>
         <h3 className="stock">Stocks: {product.stock}</h3>
 

@@ -11,7 +11,7 @@ const Card = ({
   price,
   rating,
   id,
-  viewProduct,
+  titleProduct,
 }) => {
   return (
     <div className="card-container">
@@ -19,14 +19,14 @@ const Card = ({
         <img src={image} alt={title} />
       </div>
       <h2 className="card-detail title">{title}</h2>
-      <p className="card-detail descriptions">{description}</p>
-      <h3 className="card-detail prices">{price}$</h3>
-      <Rating readOnly value={rating} className="ratings" />
+      <p className="card-detail description">{description}</p>
+      <h3 className="card-detail card-price">{price}$</h3>
+      <Rating readOnly value={rating} className="card-rating" />
       <Link
         to={`/product/${id}`}
         className="card-detail view-product card-link"
       >
-        {viewProduct}
+        {titleProduct}
       </Link>
     </div>
   );

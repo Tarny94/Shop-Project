@@ -49,11 +49,11 @@ img {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-.descriptions {
+.description {
   max-height: 45px;
   font-size: 18px;
   overflow: hidden;
-  color: #000;
+  color: $colorBlack;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -62,13 +62,13 @@ img {
   margin: 10px;
 }
 
-.prices {
+.card-price {
   padding-top: 0.7rem;
   font-weight: bold;
   font-size: 23px;
 }
 
-.ratings {
+.card-rating {
   padding: 0.6rem;
 }
 
@@ -85,8 +85,8 @@ img {
 }
 
 .card-link {
-  color: inherit;
-  text-decoration: none;
   font-size: 18px;
   font-weight: bold;
+  color: inherit;
+  text-decoration: none;
 }

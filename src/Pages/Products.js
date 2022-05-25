@@ -20,7 +20,7 @@ const Products = () => {
         rating={data.rating}
         key={data.id}
         id={data.id}
-        viewProduct="View Product"
+        titleProduct="View Product"
       />
     ));
 

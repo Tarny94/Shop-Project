@@ -3,17 +3,17 @@ import "../styles/Product.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const ImagesCarousel = ({ images, title, infiniteLoop }) => {
+const Carousels = ({ images, title, infiniteLoop }) => {
   return (
     <div className="carousel-wrapper">
       <Carousel infiniteLoop={infiniteLoop}>
         {images &&
           images.map((data) => (
-            <img src={data} className="product-image" alt={title} />
+            <img src={data} key={data} className="product-image" alt={title} />
           ))}
       </Carousel>
     </div>
   );
 };
 
-export default ImagesCarousel;
+export default Carousels;

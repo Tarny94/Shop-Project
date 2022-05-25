@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Price.scss";
 
-const Price = ({ price, dicount }) => {
+const Price = ({ price, discount }) => {
   const [oldPrice, setOldPrice] = useState();
 
   useEffect(() => {
-    if (dicount) {
-      setOldPrice(Math.trunc((price * dicount) / 100 + price));
-    } else {
-      setOldPrice(price);
-    }
-  }, [price, dicount]);
+    setOldPrice(Math.trunc((price * discount) / 100 + price));
+  }, [price, discount]);
 
   return (
     <div className="product-prices-contained">
-      {price && dicount && <h4 className="old-price">$ {oldPrice}</h4>}
+      {discount ? <h4 className="old-price">$ {oldPrice}</h4> : ""}
       <div className="price-discount">
         <h1 className="price">$ {price}</h1>
-        <p className="discount">(-{dicount}%)</p>
+        {discount ? <p className="discount">(-{discount}%)</p> : ""}
       </div>
     </div>
   );
