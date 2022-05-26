@@ -4,8 +4,9 @@ import { api } from "../Utils/Api";
 import "../styles/Product.scss";
 import Rating from "../Component/Rating";
 import Price from "../Component/Price";
-import Carousels from "../Component/Carousel";
+import Carousel from "../Component/Carousel";
 import NotFound from "../Component/NoFound";
+import { Loading } from "../Component/Loading";
 
 const Product = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const Product = () => {
 
   useEffect(() => {
     setNumberOfRatings(Math.trunc(Math.random() * 100));
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     api.products.getById(id).then((data) => {
@@ -26,7 +27,7 @@ const Product = () => {
     if (product.id == id) {
       return (
         <div className="product-container">
-          <Carousels
+          <Carousel
             images={product.images}
             title={product.title}
             key={id}
@@ -53,11 +54,13 @@ const Product = () => {
         </div>
       );
     } else {
-      return (
-        <div>
-          <NotFound />
-        </div>
-      );
+      if (id) {
+        return (
+          <div>
+            <Loading />
+          </div>
+        );
+      }
     }
   };
 
