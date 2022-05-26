@@ -25,3 +25,11 @@
   text-decoration: none;
   font-family: fantasy;
 }
+
+.select-clear-icon {
+  display: flex;
+  cursor: pointer;
+  margin-right: 15px;
+  color: $colorGray;
+  font-size: 20px;
+}

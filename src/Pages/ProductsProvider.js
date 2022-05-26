@@ -5,6 +5,7 @@ const initialState = {
   category: "",
   query: "",
   loading: true,
+
   setCategory: () => {},
   setQuery: () => {},
   setLoading: () => {},

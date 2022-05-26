@@ -1,10 +1,10 @@
 import React from "react";
-
+import "../styles/Filter.scss"
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { Select as MUISelect } from "@mui/material";
-import IconClear from "./Clear";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function Select({ value, options = [], onChange, label }) {
   const handleChange = (event) => onChange(event.target.value);
@@ -18,8 +18,8 @@ export default function Select({ value, options = [], onChange, label }) {
       <InputLabel>{label}</InputLabel>
       <MUISelect
         endAdornment={
-          <div onClick={() => onChange("")} style={{ marginRight: 20 }}>
-            <IconClear />
+          <div className="select-clear-icon" onClick={() => onChange("")}>
+            <CloseIcon />
           </div>
         }
         value={value}
