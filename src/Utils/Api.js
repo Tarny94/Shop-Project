@@ -12,6 +12,9 @@ const fetchByCategory = async (category) =>
 const fetchByName = async (query) =>
   await axios.get(`https://dummyjson.com/products/search?q=${query}`);
 
+const getById = async (id) =>
+  await axios.get(`https://dummyjson.com/products/${id}`);
+
 export const api = {
   categories: {
     fetch: fetchCategories,
@@ -20,5 +23,6 @@ export const api = {
     fetch: fetchProducts,
     fetchByCategory,
     fetchByName,
+    getById,
   },
 };

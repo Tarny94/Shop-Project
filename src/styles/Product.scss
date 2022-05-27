@@ -1,0 +1,67 @@
+@import "../styles/vars";
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $colorWhite;
+  padding-top: 20px;
+  font-size: 28px;
+}
+
+.carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  height: 6rem;
+}
+.product-image {
+  max-height: 670px;
+}
+.carousel-root {
+  width: 60rem;
+}
+
+.product-details {
+  width: 450px;
+  margin-left: 8rem;
+}
+
+.product-rating {
+  display: flex;
+  padding: 2.5rem 0;
+}
+
+.add-card {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: $colorBackgraund;
+  background-color: $colorBlack;
+  cursor: pointer;
+}
+.add-card:hover {
+  background-color: $colorView;
+  color: $colorBlack;
+  transition: 0.2s ease;
+}
+.number-rating {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.product-title {
+  padding-bottom: 2rem;
+}
+
+.stock {
+  margin-top: 1rem;
+  font-size: 19px;
+  width: 110px;
+  color: $colorGray;
+}
+
+.product-description {
+  font-size: 21px;
+  margin-top: 4rem;
+}

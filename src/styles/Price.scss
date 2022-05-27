@@ -1,0 +1,25 @@
+@import "../styles/vars";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-size: 25px;
+}
+
+.price-discount {
+  display: flex;
+  padding-top: 0.5rem;
+  color: $colorRed;
+}
+
+.price {
+  font-size: 39px;
+}
+
+.discount {
+  margin-left: 0.7rem;
+  font-size: 19px;
+}
