@@ -9,6 +9,7 @@ const Navigation = () => {
     <Routes>
       <Route path="/" element={<Products />} />
       <Route path="/product/:id" element={<Product />} />
+      <Route path="/admin" />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
