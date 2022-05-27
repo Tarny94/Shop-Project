@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Product from "../Pages/Product";
 import Products from "../Pages/Products";
 import NotFound from "../Component/NoFound";
+import Authentification from "./Authentification";
 
 const Navigation = () => {
   return (
@@ -10,6 +11,7 @@ const Navigation = () => {
       <Route path="/" element={<Products />} />
       <Route path="/product/:id" element={<Product />} />
       <Route path="/admin" />
+      <Route path="/admin/login" element={<Authentification />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
