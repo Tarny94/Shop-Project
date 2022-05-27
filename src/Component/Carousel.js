@@ -1,19 +1,19 @@
 import React from "react";
 import "../styles/Product.scss";
-import { Carousel }  from "react-responsive-carousel";
+import { Carousel as ExternalCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const carousel = ({ images, title, infiniteLoop }) => {
+const Carousel = ({ images, title, infiniteLoop }) => {
   return (
     <div className="carousel-wrapper">
-      <Carousel infiniteLoop={infiniteLoop}>
+      <ExternalCarousel infiniteLoop={infiniteLoop}>
         {images &&
           images.map((data) => (
             <img src={data} key={data} className="product-image" alt={title} />
           ))}
-      </Carousel>
+      </ExternalCarousel>
     </div>
   );
 };
 
-export default carousel;
+export default Carousel;
