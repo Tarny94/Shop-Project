@@ -1,9 +1,11 @@
 import React from "react";
 
 const username = "Madrid";
-const password = " levantica";
+const password = "levantica";
 
-export const DomyUser = {
-  username,
-  password,
+export const domyUser = {
+  use: {
+    username,
+    password,
+  },
 };

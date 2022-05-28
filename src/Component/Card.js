@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Card.scss";
-import Rating from "./Rating";
+import Rating from "../Component/Rating";
 
 import { Link } from "react-router-dom";
 
