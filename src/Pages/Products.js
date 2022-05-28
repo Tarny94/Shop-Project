@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "../Component/Card";
 import { Loading } from "../Component/Loading";
 import { ProductsContext } from "./ProductsProvider";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
-  const { products, loading } = useContext(ProductsContext);
-
+  const { products, loading, isLogin } = useContext(ProductsContext);
+  const navigate = useNavigate();
   if (loading) {
     <Loading loading={Loading} />;
+  }
+
+  if (!isLogin) {
+    navigate("/admin/login");
   }
 
   const getProducts = () =>

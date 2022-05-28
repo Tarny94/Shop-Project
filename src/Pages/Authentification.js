@@ -1,14 +1,15 @@
 import { Password } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "../Component/Input";
 import Button from "../Component/Button";
-
+import { ProductsContext } from "./ProductsProvider";
 import { useNavigate } from "react-router-dom";
 
 const Authentification = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { onChange } = useContext(ProductsContext);
 
   const authenticate = () => {
     const user = {
@@ -16,6 +17,7 @@ const Authentification = () => {
       password,
     };
     logAdmin();
+    onChange(true);
   };
 
   useEffect(() => {
