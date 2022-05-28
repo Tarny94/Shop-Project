@@ -12,9 +12,6 @@ const Authentification = () => {
       username,
       password,
     };
-
-    console.log(user);
-    console.log(user);
   };
 
   return (
