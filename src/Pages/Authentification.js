@@ -14,6 +14,7 @@ const Authentification = () => {
     };
 
     console.log(user);
+    console.log(user);
   };
 
   return (
