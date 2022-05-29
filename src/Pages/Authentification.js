@@ -10,21 +10,28 @@ const Authentification = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { onChange } = useContext(ProductsContext);
+  let user = {};
+
+  useEffect(() => {
+    const data = localStorage.getItem("login");
+    console.log(data);
+  }, []);
 
   const authenticate = () => {
-    const user = {
-      username,
-      password,
-    };
-    logAdmin();
-    onChange(true);
+    if (username !== "" && password !== "") {
+      user = {
+        username,
+        password,
+      };
+      logAdmin();
+      onChange(true);
+      localStorage.setItem("login", JSON.stringify(user));
+    }
   };
 
   useEffect(() => {
-    if (username !== "" && password !== "") {
+    if (user.username !== "" && user.password !== "") {
       authenticate();
-    } else {
-      log();
     }
   }, []);
 
@@ -37,12 +44,12 @@ const Authentification = () => {
 
   return (
     <div className="login-contained">
-      <Input label="Username" onChange={setUsername} value={username} />
+      <Input label="Username" onChange={setUsername} value={user.username} />
       <Input
         label="Password"
         type="password"
         onChange={setPassword}
-        value={password}
+        value={user.password}
       />
       <Button onClick={authenticate} title="SUBMIT" />
     </div>

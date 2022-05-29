@@ -10,10 +10,11 @@ const Products = () => {
   if (loading) {
     <Loading loading={Loading} />;
   }
-
-  if (!isLogin) {
-    navigate("/admin/login");
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/admin/login");
+    }
+  }, [isLogin]);
 
   const getProducts = () =>
     products.map((data) => (

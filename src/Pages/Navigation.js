@@ -7,10 +7,10 @@ import Authentification from "./Authentification";
 const Navigation = () => {
   return (
     <Routes>
-      <Route path="/admin/login" element={<Authentification />} />
       <Route path="/" element={<Products />} />
       <Route path="/product/:id" element={<Product />} />
       <Route path="/admin" />
+      <Route path="/admin/login" element={<Authentification />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
