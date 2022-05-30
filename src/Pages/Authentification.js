@@ -1,27 +1,22 @@
 import { Password } from "@mui/icons-material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "../Component/Input";
 import Button from "../Component/Button";
-import { ProductsContext } from "./ProductsProvider";
+
 import { useNavigate } from "react-router-dom";
 
 const Authentification = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { onChange } = useContext(ProductsContext);
+
   const navigate = useNavigate();
 
-  if (username === "" && password === "") {
-    onChange(false);
-  }
   const authenticate = () => {
     const user = {
       username,
       password,
     };
-    if (user.username !== "" && user.password !== "") {
-      onChange(true);
-    }
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   return (

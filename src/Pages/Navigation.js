@@ -8,10 +8,10 @@ import ProductCreation from "./ProductCreation";
 const Navigation = () => {
   return (
     <Routes>
-      <Route path="/admin/login" element={<Authentification />} />
       <Route path="/" element={<Products />} />
       <Route path="/product/:id" element={<Product />} />
       <Route path="/admin" element={<ProductCreation />} />
+      <Route path="/admin/login" element={<Authentification />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

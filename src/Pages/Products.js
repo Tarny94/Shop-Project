@@ -1,19 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Card from "../Component/Card";
 import { Loading } from "../Component/Loading";
 import { ProductsContext } from "./ProductsProvider";
-import { useNavigate } from "react-router-dom";
 
 const Products = () => {
-  const { products, loading, isLogin } = useContext(ProductsContext);
-  const navigate = useNavigate();
+  const { products, loading } = useContext(ProductsContext);
+
   if (loading) {
     <Loading loading={Loading} />;
   }
 
-  const log = () => {
-    navigate("/admin/login");
-  };
   const getProducts = () =>
     products.map((data) => (
       <Card
@@ -28,7 +24,7 @@ const Products = () => {
       />
     ));
 
-  return <div className="container">{isLogin ? getProducts() : log()}</div>;
+  return <div className="container">{getProducts()}</div>;
 };
 
 export default Products;

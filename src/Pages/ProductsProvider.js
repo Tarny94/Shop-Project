@@ -5,12 +5,10 @@ const initialState = {
   category: "",
   query: "",
   loading: true,
-  isLogin: false,
+
   setCategory: () => {},
   setQuery: () => {},
   setLoading: () => {},
-  setIsLogin: () => {},
-  onChange: () => {},
 };
 
 export const ProductsContext = createContext(initialState);
@@ -19,11 +17,6 @@ export const ProductsProvider = (props) => {
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isLogin, setIsLogin] = useState(false);
-
-  const onChange = (val) => {
-    setIsLogin(val);
-  };
 
   const fetchProducts = () => {
     api.products.fetch().then((data) => {
@@ -69,9 +62,6 @@ export const ProductsProvider = (props) => {
         loading,
         setProducts,
         setLoading,
-        isLogin,
-        setIsLogin,
-        onChange,
       }}
       {...props}
     />
