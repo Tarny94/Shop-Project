@@ -10,12 +10,11 @@ const Authentification = () => {
   const navigate = useNavigate();
 
   const authenticate = () => {
-    const user = {
-      username,
-      password,
-    };
-
     if (user.username !== "" && user.password !== "") {
+      const user = {
+        username,
+        password,
+      };
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/admin");
     }
