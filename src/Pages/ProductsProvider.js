@@ -20,7 +20,6 @@ export const ProductsProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
-  console.log(isLogin);
 
   const onChange = (val) => {
     setIsLogin(val);

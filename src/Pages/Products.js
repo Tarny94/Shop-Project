@@ -10,12 +10,10 @@ const Products = () => {
   if (loading) {
     <Loading loading={Loading} />;
   }
-  useEffect(() => {
-    if (!isLogin) {
-      navigate("/admin/login");
-    }
-  }, [isLogin]);
 
+  const log = () => {
+    navigate("/admin/login");
+  };
   const getProducts = () =>
     products.map((data) => (
       <Card
@@ -30,7 +28,7 @@ const Products = () => {
       />
     ));
 
-  return <div className="container">{getProducts()}</div>;
+  return <div className="container">{isLogin ? getProducts() : log()}</div>;
 };
 
 export default Products;

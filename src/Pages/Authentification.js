@@ -8,48 +8,30 @@ import { useNavigate } from "react-router-dom";
 const Authentification = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
   const { onChange } = useContext(ProductsContext);
-  let user = {};
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const data = localStorage.getItem("login");
-    console.log(data);
-  }, []);
-
+  if (username === "" && password === "") {
+    onChange(false);
+  }
   const authenticate = () => {
-    if (username !== "" && password !== "") {
-      user = {
-        username,
-        password,
-      };
-      logAdmin();
-      onChange(true);
-      localStorage.setItem("login", JSON.stringify(user));
-    }
-  };
-
-  useEffect(() => {
+    const user = {
+      username,
+      password,
+    };
     if (user.username !== "" && user.password !== "") {
-      authenticate();
+      onChange(true);
     }
-  }, []);
-
-  const logAdmin = () => {
-    navigate("/");
-  };
-  const log = () => {
-    navigate("/admin/login");
   };
 
   return (
     <div className="login-contained">
-      <Input label="Username" onChange={setUsername} value={user.username} />
+      <Input label="Username" onChange={setUsername} value={username} />
       <Input
         label="Password"
         type="password"
         onChange={setPassword}
-        value={user.password}
+        value={password}
       />
       <Button onClick={authenticate} title="SUBMIT" />
     </div>
