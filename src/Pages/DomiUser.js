@@ -1,9 +1,9 @@
 import React from "react";
 
 const username = "Madrid";
-const password = " levantica";
+const password = "Levantica";
 
-export const DomyUser = {
+export const DomiUser = {
   username,
   password,
 };

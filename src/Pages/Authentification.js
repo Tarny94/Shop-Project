@@ -1,20 +1,22 @@
 import { Password } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "../Component/Input";
 import Button from "../Component/Button";
+
+import { useNavigate } from "react-router-dom";
 
 const Authentification = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const authenticate = () => {
     const user = {
       username,
       password,
     };
-
-    console.log(user);
-    console.log(user);
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   return (
