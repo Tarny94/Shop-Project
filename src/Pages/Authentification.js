@@ -14,8 +14,9 @@ const Authentification = () => {
       username,
       password,
     };
-    localStorage.setItem("user", JSON.stringify(user));
+
     if (user.username !== "" && user.password !== "") {
+      localStorage.setItem("user", JSON.stringify(user));
       navigate("/admin");
     }
   };

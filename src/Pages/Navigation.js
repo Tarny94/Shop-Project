@@ -7,35 +7,35 @@ import { ProductsProvider } from "../Pages/ProductsProvider";
 import ProductCreation from "./ProductCreation";
 import Authentification from "./Authentification";
 
-const Navigation = () => {
+const ProductNavigation = () => {
   return (
-    <>
+    <ProductsProvider>
+      <Filter />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <ProductsProvider>
-                <Filter /> <Products />
-              </ProductsProvider>
-            </>
-          }
-        />
-        <Route
-          path="/product/:id"
-          element={
-            <>
-              <ProductsProvider>
-                <Filter /> <Product />
-              </ProductsProvider>
-            </>
-          }
-        />
-        <Route path="/admin" element={<ProductCreation />} />
-        <Route path="/admin/login" element={<Authentification />} />
+        <Route path="/" element={<Products />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </ProductsProvider>
+  );
+};
+
+const AdminNavigation = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<ProductCreation />} />
+      <Route path="/login" element={<Authentification />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
+
+const Navigation = () => {
+  return (
+    <Routes>
+      <Route path="/*" element={<ProductNavigation />} />
+      <Route path="/admin/*" element={<AdminNavigation />} />
+    </Routes>
   );
 };
 

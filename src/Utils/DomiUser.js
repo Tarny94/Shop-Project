@@ -1,7 +1,7 @@
 const username = "Madrid";
 const password = "Levantica";
 
-export const adminUser = {
+export const AdminUser = {
   username,
   password,
 };
