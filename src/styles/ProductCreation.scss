@@ -1,8 +1,5 @@
-.product-creation-contained {
+.product-creation-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .product-creation-name {
@@ -10,6 +7,17 @@
   text-align: center;
 }
 
-.creation {
+.product-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 30px;
+}
+
+.input-label {
   padding-bottom: 15px;
+  margin: 0 2rem;
+}
+.input-width {
+  width: 300px;
 }
