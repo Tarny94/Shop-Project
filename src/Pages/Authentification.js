@@ -10,7 +10,7 @@ const Authentification = () => {
   const navigate = useNavigate();
 
   const authenticate = () => {
-    if (user.username !== "" && user.password !== "") {
+    if (username !== "" && password !== "") {
       const user = {
         username,
         password,
