@@ -2,17 +2,39 @@ import { Route, Routes } from "react-router-dom";
 import Product from "../Pages/Product";
 import Products from "../Pages/Products";
 import NotFound from "../Component/NoFound";
-import Authentification from "./Authentification";
+import Filter from "./Filter";
+import { ProductsProvider } from "../Pages/ProductsProvider";
 import ProductCreation from "./ProductCreation";
+import Authentification from "./Authentification";
+
+const ProductNavigation = () => {
+  return (
+    <ProductsProvider>
+      <Filter />
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ProductsProvider>
+  );
+};
+
+const AdminNavigation = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<ProductCreation />} />
+      <Route path="/login" element={<Authentification />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
 
 const Navigation = () => {
   return (
     <Routes>
-      <Route path="/" element={<Products />} />
-      <Route path="/product/:id" element={<Product />} />
-      <Route path="/admin" element={<ProductCreation />} />
-      <Route path="/admin/login" element={<Authentification />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/*" element={<ProductNavigation />} />
+      <Route path="/admin/*" element={<AdminNavigation />} />
     </Routes>
   );
 };
