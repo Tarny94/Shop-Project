@@ -1,8 +1,6 @@
-import { Password } from "@mui/icons-material";
 import React, { useState } from "react";
 import Input from "../Component/Input";
 import Button from "../Component/Button";
-
 import { useNavigate } from "react-router-dom";
 
 const Authentification = () => {
@@ -17,6 +15,9 @@ const Authentification = () => {
       password,
     };
     localStorage.setItem("user", JSON.stringify(user));
+    if (user.username !== "" && user.password !== "") {
+      navigate("/admin");
+    }
   };
 
   return (
