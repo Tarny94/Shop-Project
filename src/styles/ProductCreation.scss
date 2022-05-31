@@ -1,3 +1,5 @@
+@import "../styles/vars";
+
 .product-creation-container {
   width: 100%;
 }
@@ -14,7 +16,7 @@
   margin-top: 30px;
 }
 
-.input-label {
+.input-container {
   padding-bottom: 15px;
   margin: 0 2rem;
 }
@@ -35,4 +37,23 @@
 .price-title {
   font-size: 40px;
   padding-bottom: 30px;
+}
+
+.input-images {
+  margin-top: 20px;
+}
+
+.button-add-image {
+  text-align: center;
+  border: 1px solid $colorBackgraund;
+  padding: 0.5rem 0;
+  margin-left: 80%;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 3px;
+}
+
+.button-add-image:hover {
+  transition: 0.5s ease;
+  background-color: $colorBackgraund;
 }

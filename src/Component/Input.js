@@ -9,6 +9,7 @@ export default function Input({
   className,
   rows,
   multiline,
+  endAdornment = null,
 }) {
   const handleEvent = (event) => {
     onChange(event.target.value);
@@ -24,9 +25,11 @@ export default function Input({
       value={value}
       className={className}
       onChange={handleEvent}
-      style={{ fontSize: 300 }}
       inputProps={{
         autoComplete: "off",
+      }}
+      InputProps={{
+        endAdornment: endAdornment ? endAdornment : null,
       }}
     />
   );

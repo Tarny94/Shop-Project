@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../styles/ProductCreation.scss";
 import { useNavigate } from "react-router-dom";
 import Input from "../Component/Input";
-import { InputAdd } from "../Component/InputAdd";
-import { InputNumbers } from "../Component/InputNumbers";
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 
 const ProductCreation = () => {
   const navigate = useNavigate();
   const [price, setPrice] = useState("");
-
-  console.log(price);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
@@ -25,46 +22,49 @@ const ProductCreation = () => {
       </div>
       <div className="product-inputs">
         <div>
-          <div className="input-label">
+          <div className="input-container">
             <Input
               type="text"
               label="Title"
               className="input-title input-width"
+              endAdornment={null}
             />
           </div>
-          <div className="input-label">
+          <div className="input-container">
             <Input
               label="Description"
               className="input-description input-width"
               rows={4}
-              multiline="multiline"
+              multiline={true}
             />
           </div>
-          <div className="input-label">
+          <div className="input-container">
             <Input label="Brand" className="input-brand input-width" />
           </div>
-          <div className="input-label">
+          <div className="input-container">
             <Input label="Category" className="input-category input-width" />
           </div>
-          <div className="input-label">
-            <InputAdd
+          <div className="input-container">
+            <Input
               label="Thumnail "
               className="input-thumnail input-width"
-              multiline="multiline"
+              multiline={true}
             />
           </div>
-          <div className="input-label">
-            <InputAdd
+          <div className="input-container">
+            <div className="button-add-image">ADD</div>
+            <Input
               label="Images"
               className="input-images input-width"
-              multiline="multiline"
-            />
+              multiline={true}
+              endAdornment={<RemoveOutlinedIcon />}
+            />{" "}
           </div>
         </div>
         <div></div>
         <div>
-          <div className="input-label">
-            <InputNumbers
+          <div className="input-container">
+            <Input
               onChange={setPrice}
               price={price}
               label="Price $"
@@ -72,22 +72,22 @@ const ProductCreation = () => {
               className="input-price input-width"
             />
           </div>
-          <div className="input-label">
-            <InputNumbers
+          <div className="input-container">
+            <Input
               type="number"
               label="Discount %"
               className="input-dicount input-width"
             />
           </div>
-          <div className="input-label">
-            <InputNumbers
+          <div className="input-container">
+            <Input
               type="number"
               label="Rating"
               className="input-rating input-width"
             />
           </div>
-          <div className="input-label">
-            <InputNumbers
+          <div className="input-container">
+            <Input
               type="number"
               label="Stock"
               className="input-stock input-width"
