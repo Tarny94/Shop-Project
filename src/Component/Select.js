@@ -1,12 +1,18 @@
 import React from "react";
-import "../styles/Filter.scss"
+import "../styles/Filter.scss";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { Select as MUISelect } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-export default function Select({ value, options = [], onChange, label }) {
+export default function Select({
+  value,
+  options = [],
+  onChange,
+  label,
+  className,
+}) {
   const handleChange = (event) => onChange(event.target.value);
 
   const getLabel = (option) => {
@@ -25,6 +31,7 @@ export default function Select({ value, options = [], onChange, label }) {
         value={value}
         label={label}
         onChange={handleChange}
+        className={className}
       >
         <MenuItem>None</MenuItem>
         {options.map((option) => (

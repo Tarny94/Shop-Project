@@ -29,7 +29,7 @@ const Authentification = () => {
         onChange={setPassword}
         value={password}
       />
-      <Button onClick={authenticate} title="SUBMIT" />
+      <Button onClick={authenticate} title="SUBMIT" className="mui-button" />
     </div>
   );
 };

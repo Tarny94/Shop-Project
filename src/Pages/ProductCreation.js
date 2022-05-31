@@ -3,10 +3,21 @@ import "../styles/ProductCreation.scss";
 import { useNavigate } from "react-router-dom";
 import Input from "../Component/Input";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+import Button from "../Component/Button";
+import Select from "../Component/Select";
+import { api } from "../Utils/Api";
 
 const ProductCreation = () => {
   const navigate = useNavigate();
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [options, setOptions] = useState();
+
+  useEffect(() => {
+    api.categories.fetch().then((data) => {
+      setOptions(data.data);
+    });
+  }, []);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
@@ -42,7 +53,13 @@ const ProductCreation = () => {
             <Input label="Brand" className="input-brand input-width" />
           </div>
           <div className="input-container">
-            <Input label="Category" className="input-category input-width" />
+            <Select
+              label="Category"
+              className="input-category input-width"
+              value={category}
+              options={options}
+              onChange={setCategory}
+            />
           </div>
           <div className="input-container">
             <Input
@@ -52,13 +69,15 @@ const ProductCreation = () => {
             />
           </div>
           <div className="input-container">
-            <div className="button-add-image">ADD</div>
+            <button className="button-add-image">ADD</button>
             <Input
               label="Images"
               className="input-images input-width"
               multiline={true}
-              endAdornment={<RemoveOutlinedIcon />}
-            />{" "}
+              endAdornment={
+                <RemoveOutlinedIcon className="image-remove-icon" />
+              }
+            />
           </div>
         </div>
         <div></div>
@@ -97,6 +116,9 @@ const ProductCreation = () => {
         <div className="product-create-price">
           <div className="price-title">Price</div>
           <div className="price-container">$ {price}</div>
+          <div className="button-add-contain">
+            <Button className="button-add" title={"ADD Product"} />
+          </div>
         </div>
       </div>
     </div>
