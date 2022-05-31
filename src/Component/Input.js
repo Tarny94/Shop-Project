@@ -8,7 +8,7 @@ export default function Input({
   type,
   className,
   rows,
-  multiline,
+  maxRows,
   endAdornment = null,
 }) {
   const handleEvent = (event) => {
@@ -18,7 +18,7 @@ export default function Input({
     <TextField
       label={label}
       id="outlined-multiline-static"
-      multiline={multiline}
+      maxRows={maxRows}
       rows={rows}
       type={type}
       variant="outlined"
