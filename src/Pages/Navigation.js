@@ -6,6 +6,7 @@ import Filter from "./Filter";
 import { ProductsProvider } from "../Pages/ProductsProvider";
 import ProductCreation from "./ProductCreation";
 import Authentification from "./Authentification";
+import { CreateProductProvider } from "./CreateProductProvider";
 
 const ProductNavigation = () => {
   return (
@@ -22,11 +23,13 @@ const ProductNavigation = () => {
 
 const AdminNavigation = () => {
   return (
-    <Routes>
-      <Route path="/" element={<ProductCreation />} />
-      <Route path="/login" element={<Authentification />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <CreateProductProvider>
+      <Routes>
+        <Route path="/" element={<ProductCreation />} />
+        <Route path="/login" element={<Authentification />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </CreateProductProvider>
   );
 };
 
