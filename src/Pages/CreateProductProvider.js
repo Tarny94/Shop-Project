@@ -3,12 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 const initialState = {
   category: "",
-  query: "",
   loading: true,
   price: "",
 
   setCategory: () => {},
-  setQuery: () => {},
   setPrice: () => {},
 };
 
@@ -21,7 +19,7 @@ export const CreateProductProvider = (props) => {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
 
-    if (data.username === "" && data.password === "") {
+    if (!data) {
       navigate("/admin/login");
     }
   }, []);
@@ -32,7 +30,6 @@ export const CreateProductProvider = (props) => {
         category,
         price,
         setCategory,
-
         setPrice,
       }}
       {...props}
