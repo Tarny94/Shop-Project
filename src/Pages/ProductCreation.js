@@ -84,20 +84,7 @@ const ProductCreation = () => {
               className="input-price input-width"
             />
           </div>
-          <div className="input-container">
-            <Input
-              type="number"
-              label="Discount %"
-              className="input-dicount input-width"
-            />
-          </div>
-          <div className="input-container">
-            <Input
-              type="number"
-              label="Rating"
-              className="input-rating input-width"
-            />
-          </div>
+
           <div className="input-container">
             <Input
               type="number"
