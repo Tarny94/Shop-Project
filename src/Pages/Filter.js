@@ -12,6 +12,10 @@ const Filter = () => {
     useContext(ProductsContext);
   const [options, setOptions] = useState();
 
+  const close = () => {
+    setCategory("");
+  };
+
   useEffect(() => {
     api.categories.fetch().then((data) => {
       setOptions(data.data);
@@ -42,6 +46,7 @@ const Filter = () => {
           options={options}
           onChange={setCategory}
           label="Categories"
+          onClose={close}
         />
       </div>
     </div>

@@ -12,6 +12,7 @@ export default function Select({
   onChange,
   label,
   className,
+  onClose,
 }) {
   const handleChange = (event) => onChange(event.target.value);
 
@@ -24,7 +25,7 @@ export default function Select({
       <InputLabel>{label}</InputLabel>
       <MUISelect
         endAdornment={
-          <div className="select-clear-icon" onClick={() => onChange("")}>
+          <div className="select-clear-icon" onClick={() => onClose()}>
             <CloseIcon />
           </div>
         }
