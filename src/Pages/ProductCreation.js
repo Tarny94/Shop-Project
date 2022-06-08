@@ -11,8 +11,35 @@ const ProductCreation = () => {
   const { setCategory, setPrice, price, category } = useContext(
     CreateProductsContext
   );
-
   const [options, setOptions] = useState();
+  const [listInput, setListInput] = useState([
+    {
+      newdata: (
+        <Input
+          label="Images"
+          className="input-images input-width"
+          multiline={true}
+          endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
+        />
+      ),
+    },
+  ]);
+
+  const addInputField = () => {
+    setListInput([
+      ...listInput,
+      {
+        newdata: (
+          <Input
+            label="Images"
+            className="input-images input-width"
+            multiline={true}
+            endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
+          />
+        ),
+      },
+    ]);
+  };
 
   useEffect(() => {
     api.categories.fetch().then((data) => {
@@ -61,15 +88,14 @@ const ProductCreation = () => {
           </div>
           <div className="input-container">
             <div className="container-image">
-              <Button className="button-add-image" title="ADD" />
-              <Input
-                label="Images"
-                className="input-images input-width"
-                multiline={true}
-                endAdornment={
-                  <RemoveOutlinedIcon className="image-remove-icon" />
-                }
+              <Button
+                className="button-add-image"
+                title="ADD"
+                onClick={addInputField}
               />
+              {listInput.map((data) => {
+                return <div>{data.newdata}</div>;
+              })}
             </div>
           </div>
         </div>
