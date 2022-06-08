@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Product from "../Pages/Product";
 import Products from "../Pages/Products";
-import NotFound from "../Component/NoFound";
+import NotFound from "../Pages/NotFound";
 import Filter from "./Filter";
 import { ProductsProvider } from "../Pages/ProductsProvider";
 import ProductCreation from "./ProductCreation";
