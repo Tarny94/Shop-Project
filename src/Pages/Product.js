@@ -5,7 +5,6 @@ import "../styles/Product.scss";
 import Rating from "../Component/Rating";
 import Price from "../Component/Price";
 import Carousel from "../Component/Carousel";
-import NotFound from "../Pages/NotFound";
 import { Loading } from "../Component/Loading";
 import { ProductsContext } from "./ProductsProvider";
 
@@ -68,7 +67,7 @@ const Product = () => {
     );
   };
 
-  return <div>{id ? getProduct() : <NotFound />}</div>;
+  return getProduct();
 };
 
 export default Product;
