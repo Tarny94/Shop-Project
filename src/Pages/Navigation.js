@@ -5,7 +5,7 @@ import NotFound from "../Pages/NotFound";
 import Filter from "./Filter";
 import { ProductsProvider } from "../Pages/ProductsProvider";
 import ProductCreation from "./ProductCreation";
-import Authentification from "./Authentification";
+import Authentification from "./Authentication";
 import { CreateProductProvider } from "./CreateProductProvider";
 
 const ProductNavigation = () => {
