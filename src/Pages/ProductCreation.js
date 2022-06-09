@@ -8,9 +8,26 @@ import Select from "../Component/Select";
 import { CreateProductsContext } from "./CreateProductProvider";
 
 const ProductCreation = () => {
-  const { setCategory, setPrice, price, category } = useContext(
-    CreateProductsContext
-  );
+  const {
+    setCategory,
+    setPrice,
+    price,
+    category,
+    handleAddProduct,
+    title,
+    description,
+    stock,
+    brand,
+    thumbnail,
+    addImages,
+    setTitle,
+    setDescription,
+    setStock,
+    setBrand,
+    setThumbnail,
+    setAddImages,
+    images,
+  } = useContext(CreateProductsContext);
   const [options, setOptions] = useState();
   const [listInput, setListInput] = useState([
     {
@@ -20,6 +37,8 @@ const ProductCreation = () => {
           className="input-images input-width"
           multiline={true}
           endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
+          onChange={setAddImages}
+          value={addImages}
         />
       ),
     },
@@ -35,11 +54,17 @@ const ProductCreation = () => {
             className="input-images input-width"
             multiline={true}
             endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
+            onChange={setAddImages}
+            value={addImages}
           />
         ),
       },
     ]);
+    images.push(addImages);
   };
+  //1. Have to create new object newProduct
+  //2. Have to save all data in the object
+  //3. Have to POST on server
 
   useEffect(() => {
     api.categories.fetch().then((data) => {
@@ -59,24 +84,33 @@ const ProductCreation = () => {
               type="text"
               label="Title"
               className="input-title input-width"
+              value={title}
+              onChange={setTitle}
             />
           </div>
           <div className="input-container">
             <Input
               label="Description"
               className="input-description input-width"
+              value={description}
+              onChange={setDescription}
             />
           </div>
           <div className="input-container">
-            <Input label="Brand" className="input-brand input-width" />
+            <Input
+              label="Brand"
+              className="input-brand input-width"
+              value={brand}
+              onChange={setBrand}
+            />
           </div>
           <div className="input-container">
             <Select
               label="Category"
               className="input-category input-width"
               value={category}
-              options={options}
               onChange={setCategory}
+              options={options}
             />
           </div>
           <div className="input-container">
@@ -84,6 +118,8 @@ const ProductCreation = () => {
               label="Thumnail"
               className="input-thumnail input-width"
               multiline={true}
+              value={thumbnail}
+              onChange={setThumbnail}
             />
           </div>
           <div className="input-container">
@@ -94,7 +130,7 @@ const ProductCreation = () => {
                 onClick={addInputField}
               />
               {listInput.map((data) => {
-                return <div>{data.newdata}</div>;
+                return <div key={data}>{data.newdata}</div>;
               })}
             </div>
           </div>
@@ -113,22 +149,10 @@ const ProductCreation = () => {
           <div className="input-container">
             <Input
               type="number"
-              label="Discount %"
-              className="input-dicount input-width"
-            />
-          </div>
-          <div className="input-container">
-            <Input
-              type="number"
-              label="Rating"
-              className="input-rating input-width"
-            />
-          </div>
-          <div className="input-container">
-            <Input
-              type="number"
               label="Stock"
               className="input-stock input-width"
+              value={stock}
+              onChange={setStock}
             />
           </div>
         </div>
@@ -138,7 +162,11 @@ const ProductCreation = () => {
         </div>
       </div>
       <div className="button-add-contain">
-        <Button className="button-add" title={"ADD Product"} />
+        <Button
+          className="button-add"
+          title={"ADD Product"}
+          onClick={handleAddProduct}
+        />
       </div>
     </div>
   );
