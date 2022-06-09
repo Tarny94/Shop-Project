@@ -19,13 +19,13 @@ const ProductCreation = () => {
     stock,
     brand,
     thumbnail,
-    addImages,
+    addImage,
     setTitle,
     setDescription,
     setStock,
     setBrand,
     setThumbnail,
-    setAddImages,
+    setAddImage,
     images,
   } = useContext(CreateProductsContext);
   const [options, setOptions] = useState();
@@ -37,8 +37,8 @@ const ProductCreation = () => {
           className="input-images input-width"
           multiline={true}
           endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
-          onChange={setAddImages}
-          value={addImages}
+          onChange={setAddImage}
+          value={addImage}
         />
       ),
     },
@@ -54,13 +54,12 @@ const ProductCreation = () => {
             className="input-images input-width"
             multiline={true}
             endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
-            onChange={setAddImages}
-            value={addImages}
+            onChange={setAddImage}
+            value={addImage}
           />
         ),
       },
     ]);
-    images.push(addImages);
   };
   //1. Have to create new object newProduct
   //2. Have to save all data in the object
@@ -130,7 +129,7 @@ const ProductCreation = () => {
                 onClick={addInputField}
               />
               {listInput.map((data) => {
-                return <div key={data}>{data.newdata}</div>;
+                return <div>{data.newdata}</div>;
               })}
             </div>
           </div>
