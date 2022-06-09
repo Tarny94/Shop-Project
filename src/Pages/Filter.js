@@ -33,9 +33,13 @@ const Filter = () => {
           query={query}
           value={query}
           endAdornment={
-            <div onClick={() => setQuery("")}>
-              <CloseIcon className="image-remove-icon" />
-            </div>
+            query ? (
+              <div onClick={() => setQuery("")}>
+                <CloseIcon className="image-remove-icon" />
+              </div>
+            ) : (
+              ""
+            )
           }
           onChange={setQuery}
         />
