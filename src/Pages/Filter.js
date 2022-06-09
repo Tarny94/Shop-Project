@@ -5,11 +5,16 @@ import Select from "../Component/Select";
 import { api } from "../Utils/Api";
 import { ProductsContext } from "./ProductsProvider";
 import { Link } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Filter = () => {
   const { query, category, setCategory, setQuery } =
     useContext(ProductsContext);
   const [options, setOptions] = useState();
+
+  const close = () => {
+    setCategory("");
+  };
 
   useEffect(() => {
     api.categories.fetch().then((data) => {
@@ -23,7 +28,21 @@ const Filter = () => {
         SHOURE
       </Link>
       <div>
-        <Input label={"Search"} query={query} onChange={setQuery} />
+        <Input
+          label={"Search"}
+          query={query}
+          value={query}
+          endAdornment={
+            query ? (
+              <div onClick={() => setQuery("")}>
+                <CloseIcon className="image-remove-icon" />
+              </div>
+            ) : (
+              ""
+            )
+          }
+          onChange={setQuery}
+        />
       </div>
       <div className="select-category">
         <Select
@@ -31,6 +50,7 @@ const Filter = () => {
           options={options}
           onChange={setCategory}
           label="Categories"
+          onClose={close}
         />
       </div>
     </div>
