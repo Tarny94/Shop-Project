@@ -26,7 +26,7 @@ export default function Select({
       <MUISelect
         endAdornment={
           value ? (
-            <div className="select-clear-icon" onClick={() => onClose()}>
+            <div className="select-clear-icon" onClick={onClose}>
               <CloseIcon />
             </div>
           ) : (
