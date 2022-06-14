@@ -19,48 +19,38 @@ const ProductCreation = () => {
     stock,
     brand,
     thumbnail,
-    addImage,
     setTitle,
     setDescription,
     setStock,
     setBrand,
     setThumbnail,
-    setAddImage,
     images,
+    setImages,
   } = useContext(CreateProductsContext);
   const [options, setOptions] = useState();
-  const [listInput, setListInput] = useState([
-    {
-      newdata: (
-        <Input
-          label="Images"
-          className="input-images input-width"
-          multiline={true}
-          endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
-          onChange={setAddImage}
-          value={addImage}
-        />
-      ),
-    },
-  ]);
 
   const addInputField = () => {
-    setListInput([
-      ...listInput,
-      {
-        newdata: (
-          <Input
-            label="Images"
-            className="input-images input-width"
-            multiline={true}
-            endAdornment={<RemoveOutlinedIcon className="image-remove-icon" />}
-            onChange={setAddImage}
-            value={addImage}
-          />
-        ),
-      },
-    ]);
+    setImages([...images, ""]);
   };
+
+  const removeInputField = (index) => {
+    let data = [...images];
+
+    if (index === 0) {
+      onSetImages("", index);
+    } else {
+      data.splice(index, 1);
+      setImages([...data]);
+    }
+  };
+
+  const onSetImages = (value, index) => {
+    console.log(value, index);
+    let data = [...images];
+    data[index] = value;
+    setImages([...data]);
+  };
+
   //1. Have to create new object newProduct
   //2. Have to save all data in the object
   //3. Have to POST on server
@@ -128,9 +118,25 @@ const ProductCreation = () => {
                 title="ADD"
                 onClick={addInputField}
               />
-              {listInput.map((data) => {
-                return <div>{data.newdata}</div>;
-              })}
+              {images.map((_, index) => (
+                <Input
+                  label="Images"
+                  className="input-images input-width"
+                  multiline={true}
+                  endAdornment={
+                    <div
+                      onClick={() => {
+                        removeInputField(index);
+                      }}
+                    >
+                      <RemoveOutlinedIcon className="image-remove-icon" />
+                    </div>
+                  }
+                  onChange={(event) => onSetImages(event, index)}
+                  value={images[index]}
+                  key={index}
+                />
+              ))}
             </div>
           </div>
         </div>

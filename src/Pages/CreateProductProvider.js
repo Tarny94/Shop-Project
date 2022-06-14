@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const initialState = {
   category: "",
@@ -34,7 +35,7 @@ export const CreateProductProvider = (props) => {
   const [thumnail, setThumbnail] = useState("");
   const [stock, setStock] = useState("");
   const [addImage, setAddImage] = useState("");
-  const images = [];
+  const [images, setImages] = useState([""]);
 
   const handleAddProduct = () => {
     console.log(addProduct);
@@ -80,6 +81,7 @@ export const CreateProductProvider = (props) => {
         setThumbnail,
         setAddImage,
         setStock,
+        setImages,
         images,
       }}
       {...props}
